@@ -2,10 +2,9 @@
 name: logsearch-config-logstash-filters
 
 dependencies:
-  - ruby-2.4-r5
+  - ruby
 
 files:
   - logsearch-config/*
   - logsearch-config/bin/*
   - logsearch-config/src/logstash-filters/**/*
-  - ruby/rake-12.3.2.gem

@@ -23,8 +23,8 @@ my*.yml
 .#*
 #*
 
-**/*.tgz
-*.gem
+#**/*.tgz
+#*.gem
 *.rbc
 .bundle
 .config
