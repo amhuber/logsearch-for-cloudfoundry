@@ -29,6 +29,22 @@ const filterQuery = (payload, cached) => {
   return payload
 }
 
+const uaaPaginatorV3 = async (get, url, values = []) => {
+  const response = await get(url, { 'per_page': 100 })
+
+  const data = response.resources.map(resource => ({
+    guid: resource.guid,
+    name: resource.name,
+  }))
+
+  const updatedValues = values.concat(data)
+
+  if (!response.pagination.next) return updatedValues
+
+  return uaaPaginatorV3(get, response.pagination.next.href, updatedValues)
+}
+
 module.exports = {
-  filterQuery
+  filterQuery,
+  uaaPaginatorV3
 }
